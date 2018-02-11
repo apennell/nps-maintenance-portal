@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
+
+import './Map.css';
  
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
 
@@ -9,18 +11,19 @@ class Map extends Component {
     super(props);
 
     this.state = {
-      lng: 5,
-      lat: 34,
-      zoom: 1.5
+      lng: -122.454558,
+      lat: 37.806121,
+      zoom: 12
     };
   }
 
   componentDidMount() {
+  	// map.setCenter(this.state);
     const { lng, lat, zoom } = this.state;
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/apennell/cjdj84uqw18l42qpqp14c9wlh',
       center: [lng, lat],
       zoom
     });
@@ -37,12 +40,8 @@ class Map extends Component {
   }
 
   render() {
-    const { lng, lat, zoom } = this.state;
-
     return (
-      <div>
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
-      </div>
+      <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
     );
   }
 }

@@ -1,0 +1,45 @@
+.nav {
+  height: 60px;
+  padding: 10px 35px;
+  background-color: #12340f;
+  color: #fff9cf;
+  box-sizing: border-box;
+}
+
+.nav-link {
+	text-transform: uppercase;
+	font-size: 15px;
+	line-height: 40px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: inline;
+	padding: 10px 28px;
+	vertical-align: top;
+}
+
+.nav-name {
+	text-transform: none;
+}
+
+.nav-left, 
+.nav-right {
+	display: inline-block;
+}
+
+.nav-right {
+	float: right;
+}
+
+.nav-right .nav-link {
+	padding-right: 0;
+}
+
+.logo {
+	height: 42px;
+}
+
+.nav-user {
+	line-height: 40px;
+	padding-left: 15px;
+}
