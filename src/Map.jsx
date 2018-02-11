@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
+import Tooltip from './Tooltip.jsx';
 import './Map.css';
  
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
 
 class Map extends Component {
+  tooltipContainer;
 
   constructor(props) {
     super(props);
@@ -17,11 +20,13 @@ class Map extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
+  	// this.tooltipContainer = document.createElement('div');
+
   	// map.setCenter(this.state);
     const { lng, lat, zoom } = this.state;
 
-    const map = new mapboxgl.Map({
+    let map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/apennell/cjdj84uqw18l42qpqp14c9wlh',
       center: [lng, lat],
@@ -37,6 +42,31 @@ class Map extends Component {
         zoom: map.getZoom().toFixed(2)
       });
     });
+
+    // const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
+    //   offset: [-120, 0]
+    // }).setLngLat([0,0]).addTo(map);
+
+    // map.on('click', function(e) {
+    // 	const features = map.queryRenderedFeatures(e.point, {
+    //     layers: ['work-order-data']
+    //   });
+    //   tooltip.setLngLat(e.lngLat);
+    //   map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+      
+    //   if (features.length) {
+    //     ReactDOM.render(
+    //       React.createElement(
+    //         Tooltip, {
+    //           features
+    //         }
+    //       ),
+    //       this.tooltipContainer
+    //     );
+    //   } else {
+    //     this.tooltipContainer.innerHTML = '';
+    //   }
+    // });
   }
 
   render() {
